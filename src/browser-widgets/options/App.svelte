@@ -25,8 +25,7 @@
     let editingQuoteId: string | null = $state(null);
     let formQuote: string = $state('');
     let formAuthor: string = $state('');
-    let currentPage: number = $state(1);
-
+    let currentPage: number = $state(1);    
     const QUOTES_PER_PAGE = 5;
 
     const totalPages = $derived(Math.max(1, Math.ceil(quotes.length / QUOTES_PER_PAGE)));
@@ -210,6 +209,9 @@
     </section>
     <section class="mt-20 box-border py-[30px] px-10 bg-primary-100">
         <h2 class="heading-md text-white">Settings</h2>
+        <div>
+            <span>lorem ipsum dolor amet - I like this keyboard than ever before</span>
+        </div>
         <Tabs defaultValue="settings" class="pt-4">
             <TabsList>
                 <Tab value="settings" class="text-neutral-50">Basic</Tab>

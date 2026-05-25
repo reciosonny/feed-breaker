@@ -24,6 +24,23 @@ There are no tests. `pnpm dev` / `pnpm preview` are for standard Vite dev server
 
 Vite builds into `browser-extensions/chrome/dist/`. The manifest at `browser-extensions/chrome/manifest.json` references `./dist/index.js` and `./dist/index.css` as content scripts. After build, `options.html` is moved from deep inside `dist/` to `browser-extensions/chrome/options.html` by a custom Vite plugin (`MoveHtmlPlugin` in `vite.config.ts`).
 
+## Coding styles
+
+- Use `arrow function` declaration whenever you create new functions inside the app like so:
+   const test = () => {
+
+   }
+- Use "named exports" all the time
+- DO NOT use `var` when declaring variables. Always use `let` or `const` whenever possible
+- Use ES6+ syntax and features at all times (destructuring, spread operator, optional chaining, template literals, etc.)
+- Prefer spread syntax over `Object.assign` whenever possible:
+
+   // preferred
+   const merged = { ...obj1, ...obj2 }
+
+   // avoid
+   const merged = Object.assign({}, obj1, obj2)
+
 ## Architecture
 
 ### Entry Points
