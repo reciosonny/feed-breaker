@@ -203,15 +203,12 @@
     const txtFooter = `Made with <3 by Sonny`;
 </script>
 
-<main class="px-[250px] pt-12">
+<main class="px-[250px] pt-12 pb-20">
     <section class="flex items-center justify-center">
         <h1 class="option-header text-center heading-lg px-[30px] py-[15px] bg-black text-white inline relative">Feed breaker</h1>
     </section>
     <section class="mt-20 box-border py-[30px] px-10 bg-primary-100">
         <h2 class="heading-md text-white">Settings</h2>
-        <div>
-            <span>lorem ipsum dolor amet - I like this keyboard than ever before</span>
-        </div>
         <Tabs defaultValue="settings" class="pt-4">
             <TabsList>
                 <Tab value="settings" class="text-neutral-50">Basic</Tab>
@@ -281,7 +278,7 @@
                                 </div>
                             {/if}
 
-                            {#if quotes.length > 0}
+                            {#if quotes.length > 0 && !showAddForm}
                                 <div class="mt-6 flex flex-col gap-2">
                                     {#each paginatedQuotes as q (q.id)}
                                         <QuoteCard
