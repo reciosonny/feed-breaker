@@ -9,6 +9,7 @@
     import RichTextInput from "$lib/components/RichTextInput/RichTextInput.svelte";
     import QuoteCard from "$lib/components/QuoteCard/QuoteCard.svelte";
     import Pagination from "$lib/components/Pagination/Pagination.svelte";
+    import PomodoroTimer from "$lib/components/PomodoroTimer/PomodoroTimer.svelte";
 
     import "./options.scss";
     import { getChromeStorage, removeChromeStorage, setChromeStorage } from '$lib/chromeStorage';
@@ -301,7 +302,9 @@
                 </section>
             </TabsPanel>
             <TabsPanel value="pomodoro">
-                <!-- TODO: Add updates -->
+                <section class="flex justify-center pt-6">
+                    <PomodoroTimer />
+                </section>
             </TabsPanel>
         </Tabs>
     </section>

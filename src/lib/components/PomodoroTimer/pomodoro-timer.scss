@@ -1,0 +1,41 @@
+/**
+ * Dynamic styles that cannot be expressed as static Tailwind utilities:
+ * the orbit angle is driven by a reactive `--angle` CSS var, and the badge /
+ * ring depletion are animated with a linear transition so the per-second
+ * countdown moves continuously instead of stepping. Everything else stays in
+ * Tailwind classes on the markup.
+ */
+
+.pt-ring {
+    position: relative;
+
+    /* Only animate while the timer is actually counting — on stop/reset the
+       angle snaps back to the top instead of unwinding a full loop. */
+    &[data-animate="true"] {
+        .pt-orbit,
+        .pt-badge {
+            transition: transform 1s linear;
+        }
+
+        .pt-arc {
+            transition: stroke-dashoffset 1s linear;
+        }
+    }
+}
+
+.pt-orbit {
+    position: absolute;
+    inset: 0;
+    transform-origin: center;
+    transform: rotate(var(--angle, 0deg));
+}
+
+/* Anchored to the ring's top point (radius = 45% of the box), then
+   counter-rotated so the time label stays upright as it orbits. */
+.pt-badge {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle, 0deg)));
+}
